@@ -4,10 +4,9 @@ import PackageDescription
 let package = Package(
     name: "SQLite.swift",
     platforms: [.iOS(.v13), .macOS(.v10_15), .tvOS(.v13), .watchOS(.v5)],
-    products: [.library(name: "SQLite", targets: ["SQLite", "SQLiteObjc"])],
+    products: [.library(name: "SQLite", targets: ["SQLite"])],
     targets: [
-        .target(name: "SQLite", dependencies: ["SQLiteObjc"], exclude: ["Info.plist"]),
-        .target(name: "SQLiteObjc"),
+        .target(name: "SQLite", exclude: ["Info.plist"]),
         .testTarget(
             name: "SQLiteTests", 
             dependencies: ["SQLite"], 
