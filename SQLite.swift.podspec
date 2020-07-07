@@ -30,9 +30,8 @@ Pod::Spec.new do |s|
   s.watchos.deployment_target = watchos_deployment_target
 
   s.subspec 'standard' do |ss|
-    ss.source_files = 'Sources/{SQLite,SQLiteObjc}/**/*.{c,h,m,swift}'
+    ss.source_files = 'Sources/SQLite/**/*.{c,h,m,swift}'
     ss.exclude_files = 'Sources/**/Cipher.swift'
-    ss.private_header_files = 'Sources/SQLiteObjc/*.h'
     ss.library = 'sqlite3'
 
     ss.test_spec 'tests' do |test_spec|
@@ -45,9 +44,8 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'standalone' do |ss|
-    ss.source_files = 'Sources/{SQLite,SQLiteObjc}/**/*.{c,h,m,swift}'
+    ss.source_files = 'Sources/SQLite/**/*.{c,h,m,swift}'
     ss.exclude_files = 'Sources/**/Cipher.swift'
-    ss.private_header_files = 'Sources/SQLiteObjc/*.h'
 
     ss.xcconfig = {
       'OTHER_SWIFT_FLAGS' => '$(inherited) -DSQLITE_SWIFT_STANDALONE',
@@ -65,8 +63,7 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'SQLCipher' do |ss|
-    ss.source_files = 'Sources/{SQLite,SQLiteObjc}/**/*.{c,h,m,swift}'
-    ss.private_header_files = 'Sources/SQLiteObjc/*.h'
+    ss.source_files = 'Sources/SQLite/**/*.{c,h,m,swift}'
     ss.xcconfig = {
       'OTHER_SWIFT_FLAGS' => '$(inherited) -DSQLITE_SWIFT_SQLCIPHER',
       'GCC_PREPROCESSOR_DEFINITIONS' => '$(inherited) SQLITE_HAS_CODEC=1'
