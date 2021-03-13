@@ -3,6 +3,7 @@ import PackageDescription
 
 let package = Package(
     name: "SQLite.swift",
+    platforms: [.iOS(.v11), .macOS(.v10_14), .tvOS(.v11), .watchOS(.v5)],
     products: [.library(name: "SQLite", targets: ["SQLite"])],
     targets: [
         .target(name: "SQLite", exclude: ["Info.plist"]),
